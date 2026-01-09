@@ -4,21 +4,21 @@ import numpy as np
 import time
 from scipy.spatial import distance as dist
 from imutils.video import VideoStream
-# from gpiozero import DigitalOutputDevice, PWMOutputDevice
+from gpiozero import DigitalOutputDevice, PWMOutputDevice
 
 # ---------------- MOTOR SETUP (L298N) ----------------
-# in1 = DigitalOutputDevice(17)
-# in2 = DigitalOutputDevice(18)
-# in3 = DigitalOutputDevice(19)
-# in4 = DigitalOutputDevice(20)
-# ena = PWMOutputDevice(22, frequency=1000)
+in1 = DigitalOutputDevice(17)
+in2 = DigitalOutputDevice(18)
+in3 = DigitalOutputDevice(19)
+in4 = DigitalOutputDevice(20)
+ena = PWMOutputDevice(22, frequency=1000)
 
 def stop_motors():
-    # in1.off()
-    # in2.off()
-    # in3.off()
-    # in4.off()
-    # ena.value = 0
+    in1.off()
+    in2.off()
+    in3.off()
+    in4.off()
+    ena.value = 0
     print("Motors STOPPED")
 
 # ---------------- EYE ASPECT RATIO ----------------
@@ -126,33 +126,33 @@ def main():
 
                     if dx < -threshold_x:
                         print("LEFT")
-                        # in1.on(); in2.off()
-                        # in3.off(); in4.off()
-                        # ena.value = 0.9
+                        in1.on(); in2.off()
+                        in3.off(); in4.off()
+                        ena.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 
                     elif dx > threshold_x:
                         print("RIGHT")
-                        # in1.off(); in2.off()
-                        # in3.on(); in4.off()
-                        # ena.value = 0.9
+                        in1.off(); in2.off()
+                        in3.on(); in4.off()
+                        ena.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 
                     elif dy > threshold_y:
                         print("BACK")
-                        # in1.off(); in2.on()
-                        # in3.off(); in4.on()
-                        # ena.value = 0.9
+                        in1.off(); in2.on()
+                        in3.off(); in4.on()
+                        ena.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 
                     elif dy < -threshold_y:
                         print("FRONT")
-                        # in1.on(); in2.off()
-                        # in3.on(); in4.off()
-                        # ena.value = 0.9
+                        in1.on(); in2.off()
+                        in3.on(); in4.off()
+                        ena.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 

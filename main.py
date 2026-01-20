@@ -12,6 +12,7 @@ in2 = DigitalOutputDevice(18)
 in3 = DigitalOutputDevice(19)
 in4 = DigitalOutputDevice(20)
 ena = PWMOutputDevice(22, frequency=1000)
+enb = PWMOutputDevice(23, frequency=1000)
 
 def stop_motors():
     in1.off()
@@ -19,6 +20,7 @@ def stop_motors():
     in3.off()
     in4.off()
     ena.value = 0
+    enb.value = 0
     print("Motors STOPPED")
 
 # ---------------- EYE ASPECT RATIO ----------------
@@ -129,6 +131,7 @@ def main():
                         in1.on(); in2.off()
                         in3.off(); in4.off()
                         ena.value = 0.9
+                        enb.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 
@@ -137,6 +140,7 @@ def main():
                         in1.off(); in2.off()
                         in3.on(); in4.off()
                         ena.value = 0.9
+                        enb.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 
@@ -145,6 +149,7 @@ def main():
                         in1.off(); in2.on()
                         in3.off(); in4.on()
                         ena.value = 0.9
+                        enb.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 
@@ -153,6 +158,7 @@ def main():
                         in1.on(); in2.off()
                         in3.on(); in4.off()
                         ena.value = 0.9
+                        enb.value = 0.9
                         detection_state = "IDLE"
                         TOTAL = 0
 

@@ -128,8 +128,8 @@ def main():
 
                     if dx < -threshold_x:
                         print("LEFT")
-                        in1.on(); in2.off()
-                        in3.off(); in4.off()
+                        in2.on(); in1.off()
+                        in4.off(); in2.off()
                         ena.value = 0.9
                         enb.value = 0.9
                         detection_state = "IDLE"
@@ -137,8 +137,8 @@ def main():
 
                     elif dx > threshold_x:
                         print("RIGHT")
-                        in1.off(); in2.off()
-                        in3.on(); in4.off()
+                        in2.off(); in1.off()
+                        in4.on(); in2.off()
                         ena.value = 0.9
                         enb.value = 0.9
                         detection_state = "IDLE"
@@ -146,8 +146,8 @@ def main():
 
                     elif dy > threshold_y:
                         print("BACK")
-                        in1.off(); in2.on()
-                        in3.off(); in4.on()
+                        in1.on(); in2.off()
+                        in3.on(); in4.off()
                         ena.value = 0.9
                         enb.value = 0.9
                         detection_state = "IDLE"
@@ -155,8 +155,8 @@ def main():
 
                     elif dy < -threshold_y:
                         print("FRONT")
-                        in1.on(); in2.off()
-                        in3.on(); in4.off()
+                        in1.off(); in2.on()
+                        in3.off(); in4.on()
                         ena.value = 0.9
                         enb.value = 0.9
                         detection_state = "IDLE"
